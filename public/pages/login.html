@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Login – RiboTech</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/web.css">
+  <link rel="stylesheet" href="../assets/css/login.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a class="logo" href="../index.html">
+      <img src="../assets/logo.png" alt="RiboTech Logo">
+      Ribo<span>Tech</span>
+    </a>
+    <nav>
+      <a class="nav-btn" href="../index.html">Home</a>
+      <a class="nav-btn" href="catalog.html">Shop</a>
+      <a class="cart-btn" href="cart.html" onclick="cartGuard(event)">Cart <span class="cart-count" id="cartCount">0</span></a>
+      <span id="navUserEmail"></span>
+      <button id="navAuthBtn" onclick="handleNavAuth()">Login</button>
+    </nav>
+  </div>
+</header>
+
+<main class="login-page-main">
+  <div class="login-page-box">
+    <div class="login-logo">Ribo<span>Tech</span></div>
+    <div class="login-title">Sign in to continue shopping</div>
+
+    <div class="login-tabs">
+      <button class="login-tab active" data-tab="login" onclick="switchTab('login')">Login</button>
+      <button class="login-tab" data-tab="register" onclick="switchTab('register')">Register</button>
+    </div>
+
+    <!-- Login Form -->
+    <div class="login-form active" id="loginForm">
+      <label for="loginEmail">Email Address</label>
+      <input type="email" id="loginEmail" placeholder="you@gmail.com" onkeydown="if(event.key==='Enter')submitLogin()">
+
+      <label for="loginPassword">Password</label>
+      <div class="password-wrapper">
+        <input type="password" id="loginPassword" placeholder="Your password" onkeydown="if(event.key==='Enter')submitLogin()">
+        <button type="button" class="toggle-pw" onclick="togglePassword('loginPassword', this)" aria-label="Toggle password visibility">
+          <svg class="eye-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="login-error" id="loginError"></div>
+      <button class="login-submit" id="loginBtn" onclick="submitLogin()">Login</button>
+    </div>
+
+    <!-- Register Form -->
+    <div class="login-form" id="registerForm">
+      <label for="regEmail">Email Address</label>
+      <input type="email" id="regEmail" placeholder="you@gmail.com">
+
+      <label for="regPassword">Password</label>
+      <div class="password-wrapper">
+        <input type="password" id="regPassword" placeholder="At least 6 characters" onkeydown="if(event.key==='Enter')submitRegister()">
+        <button type="button" class="toggle-pw" onclick="togglePassword('regPassword', this)" aria-label="Toggle password visibility">
+          <svg class="eye-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="login-error" id="registerError"></div>
+      <div class="login-success" id="registerSuccess"></div>
+      <button class="login-submit" id="regBtn" onclick="submitRegister()">Create Account</button>
+    </div>
+
+    <div class="login-back">
+      <a href="../index.html">← Back to Home</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-nav">
+      <a href="../index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html">Cart</a>
+    </div>
+    <div class="footer-copy">&copy; RiboTech. All rights reserved.</div>
+  </div>
+</footer>
+
+<div id="toast"><span class="t-icon"></span><span id="toastMsg">Added to cart!</span></div>
+<script src="../assets/kali.js"></script>
+<script>
+  updateCartCount();
+
+  // On the login page, if already logged in redirect home
+  (function() {
+    if (getLoggedInUser()) {
+      window.location.href = '../index.html';
+    }
+  })();
+
+  // Override updateNavAuth so the nav button goes to login page
+  function handleNavAuth() {
+    var user = getLoggedInUser();
+    if (user) {
+      logoutUser();
+    } else {
+      // already on login page
+    }
+  }
+
+  // Override submitLogin to redirect after success
+  async function submitLogin() {
+    var email    = document.getElementById('loginEmail').value.trim();
+    var password = document.getElementById('loginPassword').value;
+    var btn      = document.getElementById('loginBtn');
+    var errEl    = document.getElementById('loginError');
+
+    errEl.textContent = '';
+    if (!email || !password) { errEl.textContent = 'Please fill in all fields.'; return; }
+
+    btn.disabled = true;
+    btn.textContent = 'Logging in...';
+
+    try {
+      var res  = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      var data = await res.json();
+      if (!res.ok) { errEl.textContent = data.error; return; }
+
+      setLoggedInUser(data.email);
+      showToast('Welcome back, ' + data.email + '!');
+
+      // Redirect back to where the user came from, or home
+      var params = new URLSearchParams(window.location.search);
+      var returnUrl = params.get('return');
+      setTimeout(function() {
+        window.location.href = returnUrl ? returnUrl : '../index.html';
+      }, 800);
+    } catch (e) {
+      errEl.textContent = 'Server error. Make sure the server is running.';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Login';
+    }
+  }
+
+  // Override submitRegister to stay on page and switch tab
+  async function submitRegister() {
+    var email    = document.getElementById('regEmail').value.trim();
+    var password = document.getElementById('regPassword').value;
+    var btn      = document.getElementById('regBtn');
+    var errEl    = document.getElementById('registerError');
+    var sucEl    = document.getElementById('registerSuccess');
+
+    errEl.textContent = '';
+    sucEl.textContent = '';
+
+    if (!email || !password) { errEl.textContent = 'Please fill in all fields.'; return; }
+    if (password.length < 6) { errEl.textContent = 'Password must be at least 6 characters.'; return; }
+
+    btn.disabled = true;
+    btn.textContent = 'Creating account...';
+
+    try {
+      var res  = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      var data = await res.json();
+      if (!res.ok) { errEl.textContent = data.error; return; }
+      sucEl.textContent = 'Account created! Switching to login...';
+      setTimeout(function() { switchTab('login'); sucEl.textContent = ''; }, 1500);
+    } catch (e) {
+      errEl.textContent = 'Server error. Make sure the server is running.';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Create Account';
+    }
+  }
+
+  // Password toggle
+  function togglePassword(inputId, btn) {
+    var input = document.getElementById(inputId);
+    var isHidden = input.type === 'password';
+    input.type = isHidden ? 'text' : 'password';
+    btn.classList.toggle('active', isHidden);
+  }
+
+  function switchTab(tab) {
+    document.querySelectorAll('.login-tab').forEach(function(t) {
+      t.classList.toggle('active', t.dataset.tab === tab);
+    });
+    document.querySelectorAll('.login-form').forEach(function(f) {
+      f.classList.toggle('active', f.id === tab + 'Form');
+    });
+  }
+
+  // Sync nav
+  (function() {
+    var btn = document.getElementById('navAuthBtn');
+    var emailEl = document.getElementById('navUserEmail');
+    var user = getLoggedInUser();
+    if (user) {
+      if (emailEl) emailEl.textContent = user;
+      btn.textContent = 'Logout';
+      btn.onclick = function() { logoutUser(); window.location.reload(); };
+    }
+  })();
+</script>
+</body>
+</html>

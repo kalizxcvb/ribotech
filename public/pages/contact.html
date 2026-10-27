@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>RiboTech - Contact</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/web.css">
+  <link rel="stylesheet" href="../assets/css/contact.css">
+  </head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a class="logo" href="../index.html">
+      <img src="../assets/logo.png" alt="RiboTech Logo">
+      Ribo<span>Tech</span>
+    </a>
+    <nav>
+      <a class="nav-btn" href="../index.html">Home</a>
+      <a class="nav-btn" href="catalog.html">Shop</a>
+      <a class="cart-btn" href="cart.html" onclick="cartGuard(event)">Cart <span class="cart-count" id="cartCount">0</span></a>
+          <span id="navUserEmail"></span>
+      <button id="navAuthBtn" onclick="updateNavAuth()">Login</button>
+    </nav>
+  </div>
+</header>
+
+<div class="contact-wrap">
+
+  <div class="contact-header">
+    <p class="contact-label">Get in Touch</p>
+    <h1 class="contact-title">Contact <span>Us</span></h1>
+  </div>
+
+  <div class="contact-layout">
+
+    <div class="contact-details">
+
+      <div class="contact-card">
+        <div class="contact-card-icon"></div>
+        <div>
+          <div class="contact-card-title">Facebook</div>
+          <a class="contact-card-link" href="https://www.facebook.com/gian.zxcvb" id="fbLink" target="_blank">Gian Carlo Ribot</a>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-card-icon"></div>
+        <div>
+          <div class="contact-card-title">Email</div>
+          <div class="contact-card-text">giancarloribot@gmail.com</div>
+        </div>
+      </div>
+
+      <div class="sitemap-section">
+        <div class="sitemap-title">Site Map</div>
+        <img src="../assets/sitemap.png" alt="RiboTech Site Map" class="sitemap-img">
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<footer><div class="footer-inner"><div class="footer-nav">
+    <a href="../index.html">Home</a>
+    <a href="../pages/about.html">About Us</a>
+    <a href="../pages/contact.html">Contact</a>
+    <a href="../pages/cart.html">Cart</a>
+  </div>
+  <div class="footer-copy">&copy; RiboTech. All rights reserved.</div></div></footer>
+
+<script src="../assets/kali.js"></script>
+<script>updateNavAuth();</script>
+<script>updateCartCount();</script>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>RiboTech - Shop</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/catalog.css">
+  <link rel="stylesheet" href="../assets/css/web.css">
+  </head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a class="logo" href="../index.html">
+      <img src="../assets/logo.png" alt="RiboTech Logo">
+      Ribo<span>Tech</span>
+    </a>
+    <nav>
+      <a class="nav-btn" href="../index.html">Home</a>
+      <a class="nav-btn" href="../pages/catalog.html">Shop</a>
+      <a class="cart-btn" href="../pages/cart.html" onclick="cartGuard(event)">Cart <span class="cart-count" id="cartCount">0</span></a>
+          <span id="navUserEmail"></span>
+      <button id="navAuthBtn" onclick="updateNavAuth()">Login</button>
+    </nav>
+  </div>
+</header>
+
+<div class="categories">
+  <div class="cat-inner">
+    <span class="cat-label">Filter by:</span>
+    <button class="cat-pill active" onclick="setCategory('All', this)">All Components</button>
+    <button class="cat-pill" onclick="setCategory('CPU', this)">Processors (CPU)</button>
+    <button class="cat-pill" onclick="setCategory('GPU', this)">Graphics Cards (GPU)</button>
+    <button class="cat-pill" onclick="setCategory('Motherboard', this)">Motherboards</button>
+  </div>
+</div>
+
+<section class="catalog-section">
+  <div class="section-header">
+    <h2 class="section-title" id="catalogTitle">All <span>Components</span></h2>
+    <span class="result-count" id="resultCount"></span>
+  </div>
+
+  <div class="product-grid" id="catalogGrid">
+
+    <!-- CPUs -->
+    <a class="product-tile" data-cat="CPU" data-name="intel core i5-11400f processor cpu lga1200" href="products/PROCESSOR/i5-11400f.html">
+      <img src="../products/PROCESSOR/1200/i5 11400F/i5-11400f.png" alt="Intel Core i5-11400F">
+      <div class="tile-name">Intel Core i5-11400F</div>
+      <div class="tile-price">₱8,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="CPU" data-name="intel core i9-10900f processor cpu lga1200" href="products/PROCESSOR/i9-10900f.html">
+      <img src="../products/PROCESSOR/1200/i9 10900F/i9-10900f.png" alt="Intel Core i9-10900F">
+      <div class="tile-name">Intel Core i9-10900F</div>
+      <div class="tile-price">₱10,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="CPU" data-name="intel core i9-14900k processor cpu lga1700" href="products/PROCESSOR/i9-14900k.html">
+      <img src="../products/PROCESSOR/1700/i9 14900K/i9-14900k.png" alt="Intel Core i9-14900K">
+      <div class="tile-name">Intel Core i9-14900K</div>
+      <div class="tile-price">₱32,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="CPU" data-name="amd ryzen 5 5600g processor cpu am4 apu" href="products/PROCESSOR/r5-5600g.html">
+      <img src="../products/PROCESSOR/AM4/R5 5600G/r5-5600g.png" alt="AMD Ryzen 5 5600G">
+      <div class="tile-name">AMD Ryzen 5 5600G</div>
+      <div class="tile-price">₱7,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="CPU" data-name="amd ryzen 7 5700g processor cpu am4 apu" href="products/PROCESSOR/r7-5700g.html">
+      <img src="../products/PROCESSOR/AM4/R7 5700G/r7-5700g.png" alt="AMD Ryzen 7 5700G">
+      <div class="tile-name">AMD Ryzen 7 5700G</div>
+      <div class="tile-price">₱9,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="CPU" data-name="amd ryzen 9 5950x processor cpu am4" href="products/PROCESSOR/r9-5950x.html">
+      <img src="../products/PROCESSOR/AM4/R5 5950X/r9-5950x.png" alt="AMD Ryzen 9 5950X">
+      <div class="tile-name">AMD Ryzen 9 5950X</div>
+      <div class="tile-price">₱17,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="CPU" data-name="amd ryzen 5 7600x3d processor cpu am5 3d vcache" href="products/PROCESSOR/r5-7600x3d.html">
+      <img src="../products/PROCESSOR/AM5/R5 7600X3D/r5-7600x3d.png" alt="AMD Ryzen 5 7600X3D">
+      <div class="tile-name">AMD Ryzen 5 7600X3D</div>
+      <div class="tile-price">₱14,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="CPU" data-name="amd ryzen 5 9500f processor cpu am5 zen5" href="products/PROCESSOR/r5-9500f.html">
+      <img src="../products/PROCESSOR/AM5/R5 9500F/r5-9500f.png" alt="AMD Ryzen 5 9500F">
+      <div class="tile-name">AMD Ryzen 5 9500F</div>
+      <div class="tile-price">₱13,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="CPU" data-name="amd ryzen 7 7800x3d processor cpu am5 3d vcache gaming" href="products/PROCESSOR/r7-7800x3d.html">
+      <img src="../products/PROCESSOR/AM5/R7 7800X3D/r7-7800x3d.png" alt="AMD Ryzen 7 7800X3D">
+      <div class="tile-name">AMD Ryzen 7 7800X3D</div>
+      <div class="tile-price">₱20,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="CPU" data-name="amd ryzen 7 8700f processor cpu am5 zen4" href="products/PROCESSOR/r7-8700f.html">
+      <img src="../products/PROCESSOR/AM5/R7 8700F/r7-8700f.png" alt="AMD Ryzen 7 8700F">
+      <div class="tile-name">AMD Ryzen 7 8700F</div>
+      <div class="tile-price">₱13,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="CPU" data-name="amd ryzen 7 9800x3d processor cpu am5 zen5 3d vcache" href="products/PROCESSOR/r7-9800x3d.html">
+      <img src="../products/PROCESSOR/AM5/R7 9800X3D/r7-9800x3d.png" alt="AMD Ryzen 7 9800X3D">
+      <div class="tile-name">AMD Ryzen 7 9800X3D</div>
+      <div class="tile-price">₱28,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="CPU" data-name="amd ryzen 9 7950x3d processor cpu am5 3d vcache" href="products/PROCESSOR/r9-7950x3d.html">
+      <img src="../products/PROCESSOR/AM5/R9 7950X3D/r9-7950x3d.png" alt="AMD Ryzen 9 7950X3D">
+      <div class="tile-name">AMD Ryzen 9 7950X3D</div>
+      <div class="tile-price">₱35,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="CPU" data-name="amd ryzen 9 9900x3d processor cpu am5 zen5 3d vcache" href="products/PROCESSOR/r9-9900x3d.html">
+      <img src="../products/PROCESSOR/AM5/R9 9900X3D/r9-9900x3d.png" alt="AMD Ryzen 9 9900X3D">
+      <div class="tile-name">AMD Ryzen 9 9900X3D</div>
+      <div class="tile-price">₱32,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="CPU" data-name="amd ryzen 9 9950x3d processor cpu am5 zen5 3d vcache flagship" href="products/PROCESSOR/r9-9950x3d.html">
+      <img src="../products/PROCESSOR/AM5/R9 9950X3D/r9-9950x3d.png" alt="AMD Ryzen 9 9950X3D">
+      <div class="tile-name">AMD Ryzen 9 9950X3D</div>
+      <div class="tile-price">₱43,000</div>
+    </a>
+
+    <!-- GPUs -->
+    <a class="product-tile" data-cat="GPU" data-name="nvidia gigabyte gtx 1070 gpu graphics card pascal" href="products/GPU/gtx-1070.html">
+      <img src="../products/GPU/1070/gtx-1070-front.png" alt="NVIDIA GTX 1070">
+      <div class="tile-name">NVIDIA GTX 1070</div>
+      <div class="tile-price">₱5,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="GPU" data-name="nvidia gigabyte gtx 1080 gpu graphics card pascal" href="products/GPU/gtx-1080.html">
+      <img src="../products/GPU/1080/gtx-1080-front.png" alt="NVIDIA GTX 1080">
+      <div class="tile-name">NVIDIA GTX 1080</div>
+      <div class="tile-price">₱7,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="GPU" data-name="nvidia asus rog gtx 1660 gpu graphics card turing" href="products/GPU/gtx-1660.html">
+      <img src="../products/GPU/1660/gtx-1660-front.png" alt="NVIDIA GTX 1660">
+      <div class="tile-name">NVIDIA GTX 1660</div>
+      <div class="tile-price">₱8,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="GPU" data-name="nvidia asus rog gtx 1660 super gpu graphics card turing" href="products/GPU/gtx-1660-super.html">
+      <img src="../products/GPU/1660 Super/gtx-1660s-front.png" alt="NVIDIA GTX 1660 Super">
+      <div class="tile-name">NVIDIA GTX 1660 Super</div>
+      <div class="tile-price">₱9,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="GPU" data-name="nvidia asus rog rtx 2070 gpu graphics card ray tracing" href="products/GPU/rtx-2070.html">
+      <img src="../products/GPU/2070/rtx-2070-front.png" alt="NVIDIA RTX 2070">
+      <div class="tile-name">NVIDIA RTX 2070</div>
+      <div class="tile-price">₱13,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="GPU" data-name="nvidia asus rog rtx 2080 gpu graphics card ray tracing" href="products/GPU/rtx-2080.html">
+      <img src="../products/GPU/2080/rtx-2080-front.png" alt="NVIDIA RTX 2080">
+      <div class="tile-name">NVIDIA RTX 2080</div>
+      <div class="tile-price">₱17,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="GPU" data-name="nvidia asus rog rtx 3070 gpu graphics card ampere dlss" href="products/GPU/rtx-3070.html">
+      <img src="../products/GPU/3070/rtx-3070-front.png" alt="NVIDIA RTX 3070">
+      <div class="tile-name">NVIDIA RTX 3070</div>
+      <div class="tile-price">₱20,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="GPU" data-name="nvidia asus rog rtx 3080 gpu graphics card ampere 4k" href="products/GPU/rtx-3080.html">
+      <img src="../products/GPU/3080/rtx-3080-front.png" alt="NVIDIA RTX 3080">
+      <div class="tile-name">NVIDIA RTX 3080</div>
+      <div class="tile-price">₱29,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="GPU" data-name="nvidia asus rog rtx 3090 gpu graphics card ampere 24gb" href="products/GPU/rtx-3090.html">
+      <img src="../products/GPU/3090/rtx-3090-front.png" alt="NVIDIA RTX 3090">
+      <div class="tile-name">NVIDIA RTX 3090</div>
+      <div class="tile-price">₱41,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="GPU" data-name="nvidia asus rog rtx 4070 gpu graphics card ada dlss3" href="products/GPU/rtx-4070.html">
+      <img src="../products/GPU/4070/rtx-4070-front.png" alt="NVIDIA RTX 4070">
+      <div class="tile-name">NVIDIA RTX 4070</div>
+      <div class="tile-price">₱32,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="GPU" data-name="nvidia asus rog rtx 4080 gpu graphics card ada dlss3 4k" href="products/GPU/rtx-4080.html">
+      <img src="../products/GPU/4080/rtx-4080-front.png" alt="NVIDIA RTX 4080">
+      <div class="tile-name">NVIDIA RTX 4080</div>
+      <div class="tile-price">₱52,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="GPU" data-name="nvidia asus rog rtx 4090 gpu graphics card ada dlss3 flagship" href="products/GPU/rtx-4090.html">
+      <img src="../products/GPU/4090/rtx-4090-front.png" alt="NVIDIA RTX 4090">
+      <div class="tile-name">NVIDIA RTX 4090</div>
+      <div class="tile-price">₱87,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="GPU" data-name="nvidia asus rog rtx 5070 gpu graphics card blackwell dlss4" href="products/GPU/rtx-5070.html">
+      <img src="../products/GPU/5070/rtx-5070-front.png" alt="NVIDIA RTX 5070">
+      <div class="tile-name">NVIDIA RTX 5070</div>
+      <div class="tile-price">₱38,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="GPU" data-name="nvidia asus rog rtx 5080 gpu graphics card blackwell dlss4" href="products/GPU/rtx-5080.html">
+      <img src="../products/GPU/5080/rtx-5080-front.png" alt="NVIDIA RTX 5080">
+      <div class="tile-name">NVIDIA RTX 5080</div>
+      <div class="tile-price">₱58,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="GPU" data-name="nvidia asus rog rtx 5090 gpu graphics card blackwell dlss4 flagship" href="products/GPU/rtx-5090.html">
+      <img src="../products/GPU/5090/rtx-5090-front.png" alt="NVIDIA RTX 5090">
+      <div class="tile-name">NVIDIA RTX 5090</div>
+      <div class="tile-price">₱116,000</div>
+    </a>
+
+    <!-- Motherboards -->
+    <a class="product-tile" data-cat="Motherboard" data-name="asus tuf gaming b560m motherboard lga1200 intel micro-atx" href="products/MOTHERBOARD/b560m.html">
+      <img src="../products/MOTHERBOARD/1200/ASUS TUF GAMING B560M/b560m.png" alt="ASUS TUF Gaming B560M">
+      <div class="tile-name">ASUS TUF Gaming B560M</div>
+      <div class="tile-price">₱7,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="Motherboard" data-name="asus rog strix z590-a motherboard lga1200 intel atx" href="products/MOTHERBOARD/z590-a.html">
+      <img src="../products/MOTHERBOARD/1200/ASUS ROG STRIX Z590/z590-a.png" alt="ASUS ROG STRIX Z590-A">
+      <div class="tile-name">ASUS ROG STRIX Z590-A</div>
+      <div class="tile-price">₱12,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="Motherboard" data-name="asus rog strix z690-a motherboard lga1700 intel atx ddr5" href="products/MOTHERBOARD/z690-a.html">
+      <img src="../products/MOTHERBOARD/1700/ASUS ROG STRIX Z690/z690-a.png" alt="ASUS ROG STRIX Z690-A">
+      <div class="tile-name">ASUS ROG STRIX Z690-A</div>
+      <div class="tile-price">₱14,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="Motherboard" data-name="asus prime b550m motherboard am4 amd micro-atx ryzen" href="products/MOTHERBOARD/b550m.html">
+      <img src="../products/MOTHERBOARD/AM4/Asus Prime B550M/b550m.png" alt="Asus Prime B550M">
+      <div class="tile-name">Asus Prime B550M</div>
+      <div class="tile-price">₱5,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="Motherboard" data-name="asus tuf gaming b550 motherboard am4 amd atx ryzen" href="products/MOTHERBOARD/b550.html">
+      <img src="../products/MOTHERBOARD/AM4/Asus TUF Gaming B550/b550.png" alt="Asus TUF Gaming B550">
+      <div class="tile-name">Asus TUF Gaming B550</div>
+      <div class="tile-price">₱8,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="Motherboard" data-name="asus rog strix x570 motherboard am4 amd atx ryzen" href="products/MOTHERBOARD/x570.html">
+      <img src="../products/MOTHERBOARD/AM4/ASUS ROG Strix X570/x570.png" alt="ASUS ROG Strix X570">
+      <div class="tile-name">ASUS ROG Strix X570</div>
+      <div class="tile-price">₱10,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="Motherboard" data-name="asus prime b650em-a motherboard am5 amd micro-atx ryzen ddr5" href="products/MOTHERBOARD/b650em-a.html">
+      <img src="../products/MOTHERBOARD/AM5/Asus Prime B650EM-A/b650em-a.png" alt="Asus Prime B650EM-A">
+      <div class="tile-name">Asus Prime B650EM-A</div>
+      <div class="tile-price">₱9,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="Motherboard" data-name="asus tuf gaming b850 motherboard am5 amd atx ryzen ddr5" href="products/MOTHERBOARD/b850.html">
+      <img src="../products/MOTHERBOARD/AM5/Asus Tuf Gaming B850/b850.png" alt="Asus TUF Gaming B850">
+      <div class="tile-name">Asus TUF Gaming B850</div>
+      <div class="tile-price">₱11,000</div>
+    </a>
+
+    <a class="product-tile" data-cat="Motherboard" data-name="asus rog crosshair x870e motherboard am5 amd atx flagship ddr5" href="products/MOTHERBOARD/x870e.html">
+      <img src="../products/MOTHERBOARD/AM5/Asus ROG Crosshair X870E/x870e.png" alt="Asus ROG Crosshair X870E">
+      <div class="tile-name">Asus ROG Crosshair X870E</div>
+      <div class="tile-price">₱32,000</div>
+    </a>
+
+
+  </div>
+</section>
+
+<footer><div class="footer-inner"><div class="footer-nav">
+    <a href="../index.html">Home</a>
+    <a href="../pages/about.html">About Us</a>
+    <a href="../pages/contact.html">Contact</a>
+    <a href="../pages/cart.html">Cart</a>
+  </div>
+  <div class="footer-copy">&copy; RiboTech. All rights reserved.</div></div></footer>
+
+<div id="toast"><span class="t-icon"></span><span id="toastMsg">Added to cart!</span></div>
+<script src="../assets/kali.js"></script>
+<script>updateNavAuth();</script>
+<script>
+  var activeCategory = 'All';
+
+  function setCategory(cat, btn) {
+    activeCategory = cat;
+    document.querySelectorAll('.cat-pill').forEach(function(p){ p.classList.remove('active'); });
+    if (btn) btn.classList.add('active');
+    filterCatalog();
+  }
+
+  function filterCatalog() {
+    var tiles = document.querySelectorAll('.product-tile');
+    var visible = 0;
+    tiles.forEach(function(tile) {
+      var catMatch = activeCategory === 'All' || tile.dataset.cat === activeCategory;
+      if (catMatch) {
+        tile.classList.remove('hidden');
+        visible++;
+      } else {
+        tile.classList.add('hidden');
+      }
+    });
+    document.getElementById('resultCount').textContent = visible + ' product' + (visible !== 1 ? 's' : '') + ' found';
+    document.getElementById('noResults').classList.toggle('hidden', visible > 0);
+  }
+
+  updateCartCount();
+
+  // Read ?cat= from URL and apply on load
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var cat = params.get('cat');
+    if (cat) {
+      var btn = document.querySelector('.cat-pill[onclick*="' + cat + '"]');
+      setCategory(cat, btn);
+    } else {
+      filterCatalog();
+    }
+  })();
+</script>
+
+</div>
+
+</body>
+</html>

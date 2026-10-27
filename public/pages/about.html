@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>RiboTech - About Us</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/web.css">
+  <link rel="stylesheet" href="../assets/css/about.css">
+  </head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a class="logo" href="../index.html">
+      <img src="../assets/logo.png" alt="RiboTech Logo">
+      Ribo<span>Tech</span>
+    </a>
+    <nav>
+      <a class="nav-btn" href="../index.html">Home</a>
+      <a class="nav-btn" href="catalog.html">Shop</a>
+      <a class="cart-btn" href="cart.html" onclick="cartGuard(event)">Cart <span class="cart-count" id="cartCount">0</span></a>
+          <span id="navUserEmail"></span>
+      <button id="navAuthBtn" onclick="updateNavAuth()">Login</button>
+    </nav>
+  </div>
+</header>
+
+<div class="about-wrap">
+  <div class="about-layout">
+
+    <div class="about-text">
+      <p class="about-label">My Story</p>
+      <h1 class="about-title">About <span>RiboTech</span></h1>
+
+      <p class="about-body">
+        RiboTech is a tech shop company founded by Gian Carlo T. Ribot, dedicated to providing high quality computer parts for students, gamers, and businesses.
+      </p>
+
+      <p class="about-body">
+        I believe that good technology should be accessible to everyone. We offer Graphics Cards, Processors, and Motherboards carefully selected to suit every build and budget.
+      </p>
+    </div>
+
+    <div class="about-photo">
+      <div class="photo-frame">
+        <img src="../assets/gian.jpg" alt="Gian — Founder of RiboTech">
+      </div>
+      <p class="photo-caption">Gian Carlo T. Ribot</p>
+      <p class="comp-position">Founder of RiboTech</p>
+    </div>
+
+  </div>
+</div>
+
+<footer><div class="footer-inner"><div class="footer-nav">
+    <a href="../index.html">Home</a>
+    <a href="../pages/about.html">About Us</a>
+    <a href="../pages/contact.html">Contact</a>
+    <a href="../pages/cart.html">Cart</a>
+  </div>
+  <div class="footer-copy">&copy; RiboTech. All rights reserved.</div></div></footer>
+
+<script src="../assets/kali.js"></script>
+<script>updateNavAuth();</script>
+<script>updateCartCount();</script>
+
+</div>
+
+</body>
+</html>

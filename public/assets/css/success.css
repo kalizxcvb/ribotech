@@ -1,0 +1,13 @@
+.success-wrap {
+  max-width: 560px;
+  margin: 120px auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.success-title {
+  font-family: var(--font-head);
+  font-size: 32px;
+  color: var(--white);
+  margin-bottom: 32px;
+}

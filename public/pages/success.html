@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+ <title>RiboTech</title>
+  <link rel="icon" href="../assets/favicon.ico"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="../assets/css/web.css">
+  <link rel="stylesheet" href="../assets/css/success.css">
+  </head>
+<body>
+
+<header>
+ <div class="nav-inner">
+ <a class="logo" href="../index.html">
+ <img src="../assets/logo.png" alt="RiboTech Logo">
+ Ribo<span>Tech</span>
+ </a>
+    <nav>
+      <a class="nav-btn" href="../index.html">Home</a>
+      <a class="nav-btn" href="../pages/catalog.html">Shop</a>
+      <a class="cart-btn" href="../pages/cart.html" onclick="cartGuard(event)">Cart <span class="cart-count" id="cartCount">0</span></a>
+          <span id="navUserEmail"></span>
+      <button id="navAuthBtn" onclick="updateNavAuth()">Login</button>
+    </nav>
+ </div>
+</header>
+
+<div class="success-wrap">
+  <h1 class="success-title">Thank you for your order.</h1>
+  <a class="btn-primary" href="../index.html">Continue Shopping</a>
+</div>
+
+<footer>
+  <div class="footer-nav">
+    <a href="../index.html">Home</a>
+    <a href="../pages/about.html">About Us</a>
+    <a href="../pages/contact.html">Contact</a>
+    <a href="../pages/cart.html">Cart</a>
+  </div>
+  <div class="footer-copy">&copy; RiboTech. All rights reserved.</div>
+</footer>
+
+<script src="../assets/kali.js"></script>
+<script>updateNavAuth();</script>
+<script>updateCartCount();</script>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,242 @@
+.cart-wrap {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 40px;
+}
+
+.cart-title {
+  font-family: var(--font-head);
+  font-size: 29px;
+  color: var(--white);
+  margin-bottom: 32px;
+}
+
+.cart-title span {
+  color: var(--gold);
+}
+
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 32px;
+  align-items: start;
+  width: 100%;
+}
+
+@media (max-width: 750px) {
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cart-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  gap: 16px;
+  align-items: center;
+}
+
+.cart-item-img {
+  width: 60px;
+  height: 60px;
+  background: #1e1e1e;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 29px;
+}
+
+.cart-item-name {
+  font-family: var(--font-head);
+  font-size: 15px;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.cart-item-cat {
+  font-size: 12px;
+  color: var(--gold);
+}
+
+.cart-item-right {
+  text-align: right;
+}
+
+.cart-item-price {
+  font-family: var(--font-head);
+  font-size: 18px;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.cart-qty-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+.ci-qty-btn {
+  background: var(--border);
+  border: none;
+  color: var(--white);
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--font-body);
+  transition: background 0.15s;
+}
+
+.ci-qty-btn:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.ci-qty {
+  font-size: 14px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 12px;
+  font-family: var(--font-body);
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.15s;
+}
+
+.remove-btn:hover {
+  color: var(--red);
+}
+
+.order-summary {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  position: sticky;
+  top: 84px;
+}
+
+.summary-title {
+  font-family: var(--font-head);
+  font-size: 18px;
+  color: var(--white);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.summary-row span:first-child {
+  color: var(--muted);
+}
+
+.summary-row span:last-child {
+  color: var(--white);
+}
+
+.summary-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 16px 0;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.summary-total span:first-child {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.summary-total span:last-child {
+  font-family: var(--font-head);
+  font-size: 22px;
+  color: var(--gold);
+}
+
+.checkout-btn {
+  display: block;
+  width: 100%;
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: var(--font-body);
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 10px;
+}
+
+.checkout-btn:hover {
+  background: var(--gold2);
+}
+
+.continue-btn {
+  display: block;
+  width: 100%;
+  background: none;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: var(--font-body);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.continue-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.empty-cart {
+  text-align: center;
+  padding: 64px 24px;
+  color: var(--muted);
+}
+
+.empty-cart .big-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.empty-cart p {
+  font-size: 16px;
+  margin-bottom: 24px;
+}

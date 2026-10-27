@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+ <title>RiboTech - NVIDIA GIGABYTE GTX 1080</title>
+  <link rel="icon" href="../../../assets/favicon.ico"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="../../../assets/css/web.css">
+  <link rel="stylesheet" href="../../../assets/css/product.css">
+  </head>
+<body>
+
+<header>
+ <div class="nav-inner">
+ <a class="logo" href="../../../index.html">
+ <img src="../../../assets/logo.png" alt="RiboTech Logo">
+ Ribo<span>Tech</span>
+ </a>
+ <nav>
+      <a class="nav-btn" href="../../../index.html">Home</a>
+      <a class="nav-btn" href="../../../pages/catalog.html">Shop</a>
+      <a class="cart-btn" href="../../../pages/cart.html" onclick="cartGuard(event)">Cart <span class="cart-count" id="cartCount">0</span></a>
+          <span id="navUserEmail"></span>
+      <button id="navAuthBtn" onclick="updateNavAuth()">Login</button>
+    </nav>
+ </div>
+</header>
+
+<div class="breadcrumb-bar">
+ <div class="breadcrumb-inner">
+ <a href="../../../index.html">Home</a>
+ <span class="sep">></span>
+ <a href="../../catalog.html">GPUs</a>
+ <span class="sep">></span>
+ <span class="current">NVIDIA GIGABYTE GTX 1080</span>
+ </div>
+</div>
+
+<div class="page-wrap">
+ <div class="product-layout">
+
+ 
+ <div class="gallery">
+ <div class="main-img-wrap">
+ <button class="img-nav prev" onclick="changeImage(-1)"><</button>
+ <img id="mainImg" src="../../../products/GPU/1080/gtx-1080-front.png" alt="NVIDIA GIGABYTE GTX 1080">
+ <button class="img-nav next" onclick="changeImage(1)">></button>
+ <div class="img-counter" id="imgCounter">1 / 3</div>
+ </div>
+ <div class="thumb-strip">
+ <div class="thumb active" onclick="setImage(0)" title="Front view">
+ <img src="../../../products/GPU/1080/gtx-1080-front.png" alt="Front">
+ </div>
+ <div class="thumb" onclick="setImage(1)" title="Back view">
+ <img src="../../../products/GPU/1080/gtx-1080-back.png" alt="Back">
+ </div>
+ <div class="thumb" onclick="setImage(2)" title="Retail package">
+ <img src="../../../products/GPU/1080/gtx-1080-box.png" alt="With Box">
+ </div>
+ </div>
+ <div class="img-label" id="imgLabel">Front View</div>
+ </div>
+
+ 
+ <div class="product-info">
+ 
+ <div class="product-category">GPU</div>
+ <h1 class="product-name">NVIDIA GIGABYTE GTX 1080</h1>
+ <div class="product-model">Brand: NVIDIA / ASUS</div>
+
+ <div class="price-row"><span class="price">₱7,000</span></div>
+
+ <div class="stock-row">
+ <div class="dot"></div>
+ <span class="in-stock">In Stock</span>
+ <span class="stock-count">— Only 4 units left</span>
+ </div>
+
+ <p class="short-desc">The top Pascal GPU in its day, still very capable for 1080p and light 1440p gaming. A cost-effective pick for budget builds needing solid rasterization.</p>
+
+ <div class="quick-specs">
+ <div class="spec-pill">
+ <span class="spec-pill-label">VRAM</span>
+ <span>8GB GDDR5X</span>
+ </div>
+ <div class="spec-pill">
+ <span class="spec-pill-label">CUDA Cores</span>
+ <span>2,560</span>
+ </div>
+ <div class="spec-pill">
+ <span class="spec-pill-label">Base Clock</span>
+ <span>1.61 GHz</span>
+ </div>
+ <div class="spec-pill">
+ <span class="spec-pill-label">Boost Clock</span>
+ <span>1.73 GHz</span>
+ </div>
+ </div>
+
+ <div class="qty-row">
+ <span class="qty-label">Quantity:</span>
+ <div class="qty-ctrl">
+ <button class="qty-btn" onclick="changeQty(-1)">-</button>
+ <input class="qty-num" type="text" value="1" id="qtyInput" readonly>
+ <button class="qty-btn" onclick="changeQty(1)">+</button>
+ </div>
+ </div>
+
+ <button class="add-cart-btn" id="addBtn" onclick="requireLogin(addToCart)"> Add to Cart</button>
+
+      <button class="buy-now-btn" onclick="requireLogin(buyNow)">Buy Now</button>
+ </div>
+
+ 
+
+ </div>
+
+</div>
+
+ <section class="related-section">
+ <h2 class="section-heading">You Might Also <span>Like</span></h2>
+ <div class="related-grid">
+ <a class="related-card" href="gtx-1070.html">
+ <div class="related-card-img">
+ <img src="../../../products/GPU/1070/gtx-1070-front.png" alt="NVIDIA GIGABYTE GTX 1070">
+ </div>
+ <div class="related-card-body">
+ <div class="related-card-cat">GPU</div>
+ <div class="related-card-name">NVIDIA GIGABYTE GTX 1070</div>
+ <div class="related-card-price">₱5,000</div>
+ </div>
+ </a>
+ <a class="related-card" href="gtx-1660.html">
+ <div class="related-card-img">
+ <img src="../../../products/GPU/1660/gtx-1660-front.png" alt="NVIDIA ASUS ROG GTX 1660">
+ </div>
+ <div class="related-card-body">
+ <div class="related-card-cat">GPU</div>
+ <div class="related-card-name">NVIDIA ASUS ROG GTX 1660</div>
+ <div class="related-card-price">₱8,000</div>
+ </div>
+ </a>
+ <a class="related-card" href="gtx-1660-super.html">
+ <div class="related-card-img">
+ <img src="../../../products/GPU/1660 Super/gtx-1660s-front.png" alt="NVIDIA ASUS ROG GTX 1660 Super">
+ </div>
+ <div class="related-card-body">
+ <div class="related-card-cat">GPU</div>
+ <div class="related-card-name">NVIDIA ASUS ROG GTX 1660 Super</div>
+ <div class="related-card-price">₱9,000</div>
+ </div>
+ </a>
+ </div>
+ </section>
+
+</div>
+
+<footer><div class="footer-inner"><div class="footer-nav">
+    <a href="../../../index.html">Home</a>
+    <a href="../../../pages/about.html">About Us</a>
+    <a href="../../../pages/contact.html">Contact</a>
+    <a href="../../../pages/cart.html">Cart</a>
+  </div>
+  <div class="footer-copy">&copy; RiboTech. All rights reserved.</div></div></footer>
+
+<div id="toast"> <span id="toastMsg">Added to cart!</span></div>
+
+<script src="../../../assets/kali.js"></script>
+<script>updateNavAuth();</script>
+<script>
+ /* IMAGE GALLERY */
+ var images = [
+ { src: "../../../products/GPU/1080/gtx-1080-front.png", label: "Front View" },
+ { src: "../../../products/GPU/1080/gtx-1080-back.png", label: "Back View" },
+ { src: "../../../products/GPU/1080/gtx-1080-box.png", label: "With Box &mdash; Retail Package" },
+ ];
+ var current = 0;
+
+ function setImage(index) {
+ current = index;
+ if (current < 0) current = images.length - 1;
+ if (current >= images.length) current = 0;
+ var mainImg = document.getElementById('mainImg');
+ mainImg.style.opacity = '0';
+ mainImg.style.transform = 'scale(0.97)';
+ setTimeout(function() {
+ mainImg.src = images[current].src;
+ mainImg.alt = images[current].label;
+ mainImg.style.opacity = '1';
+ mainImg.style.transform = 'scale(1)';
+ }, 150);
+ document.getElementById('imgLabel').innerHTML = images[current].label;
+ document.getElementById('imgCounter').textContent = (current + 1) + ' / ' + images.length;
+ var thumbs = document.querySelectorAll('.thumb');
+ for (var i = 0; i < thumbs.length; i++) thumbs[i].classList.remove('active');
+ if (thumbs[current]) thumbs[current].classList.add('active');
+ }
+
+ function changeImage(dir) { setImage(current + dir); }
+
+ document.addEventListener('keydown', function(e) {
+ if (e.key === 'ArrowLeft') changeImage(-1);
+ if (e.key === 'ArrowRight') changeImage(1);
+ });
+
+ /* QUANTITY */
+ function changeQty(delta) {
+ var input = document.getElementById('qtyInput');
+ var val = parseInt(input.value) + delta;
+ if (val < 1) val = 1;
+ if (val > 10) val = 10;
+ input.value = val;
+ }
+
+ /* ADD TO CART (uses kali.js cart system) */
+ function addToCart() {
+ var qty = parseInt(document.getElementById('qtyInput').value);
+ var btn = document.getElementById('addBtn');
+
+ // Build a mini product object matching kali.js structure
+ var product = {
+ id: 16,
+ name: "NVIDIA GIGABYTE GTX 1080",
+ price: 7000,
+ category: "GPU",
+ img: "GPU/1080/gtx-1080-front.png"
+ };
+
+ // Load and update cart manually
+ var c = loadCart();
+ var found = false;
+ for (var i = 0; i < c.length; i++) {
+ if (c[i].id === product.id) { c[i].qty += qty; found = true; break; }
+ }
+ if (!found) c.push({ id:product.id, name:product.name, price:product.price, category:product.category, img:product.img, qty:qty });
+ saveCart(c);
+ updateCartCount();
+ showToast(product.name + ' added to cart!');
+
+ btn.innerHTML = ' Added to Cart!';
+ btn.classList.add('added');
+ setTimeout(function() {
+ btn.innerHTML = ' Add to Cart';
+ btn.classList.remove('added');
+ }, 2500);
+ }
+
+
+  function buyNow() {
+    addToCart();
+    setTimeout(function() {
+      window.location.href = "../../../pages/checkout.html";
+    }, 300);
+  }
+
+  updateCartCount();
+</script>
+
+</div>
+
+</body>
+</html>
